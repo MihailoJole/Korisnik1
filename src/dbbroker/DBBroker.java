@@ -1,4 +1,6 @@
-package korisnik;
+package dbbroker;
+import korisnik.Korisnik;
+
 import java.sql.*;
 
 public class DBBroker {
@@ -27,19 +29,13 @@ public class DBBroker {
         }
     }
 
-    public void ubaciKorisnika (){
-        String ime= "Jovan";
-        String prezime= "Jolovic";
-        String email= "mj@gmail.com";
-        String telefon = "064";
+    public void ubaciKorisnika (Korisnik korisnik){
 
-
-
-        String upit = "INSERT INTO KORISNIK(IME, PREZIME, EMAIL, TELEFON) VALUES ('"+ime+"','"+prezime+"','"+email+"', '"+telefon+"')";
+        String upit = "INSERT INTO KORISNIK(IME, PREZIME, EMAIL, TELEFON) VALUES ('"+korisnik.getIme()+"','"+korisnik.getPrezime()+"','"+korisnik.getEmail()+"', '"+korisnik.getTelefon()+"')";
         try {
-           Statement statement = connection.createStatement();
-           statement.executeUpdate(upit);
-           statement.close();
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(upit);
+            statement.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
