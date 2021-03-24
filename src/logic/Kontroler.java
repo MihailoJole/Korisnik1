@@ -3,8 +3,6 @@ package logic;
 import dbbroker.DBBroker;
 import korisnik.Korisnik;
 
-import java.sql.SQLException;
-import java.sql.Statement;
 
 public class Kontroler {
     private DBBroker dbbr;
@@ -18,7 +16,7 @@ public class Kontroler {
         return instance;
     }
 
-    public Kontroler () {
+    private Kontroler () {
         dbbr = new DBBroker();
     }
 
