@@ -35,6 +35,4 @@ public class Kontroler {
             throw ex;
         }finally { dbbr.raskiniKonekciju(); }
     }
-
-
 }
