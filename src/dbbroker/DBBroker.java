@@ -1,10 +1,29 @@
 package dbbroker;
 import korisnik.Korisnik;
+import logic.Kontroler;
 
 import java.sql.*;
 
 public class DBBroker {
+
     private Connection connection;
+
+    private static DBBroker instance;
+
+    public static DBBroker getInstance() {
+        if (instance == null) {
+            instance = new DBBroker();
+        }
+        return instance;
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+    }
 
     public void ucitajKonekciju() throws Exception {
         try {
@@ -29,7 +48,7 @@ public class DBBroker {
         }
     }
 
-    public void ubaciKorisnika (Korisnik korisnik){
+    /*public void ubaciKorisnika (Korisnik korisnik){
 
         String upit = "INSERT INTO KORISNIK(IME, PREZIME, EMAIL, TELEFON) VALUES ('"+korisnik.getIme()+"','"+korisnik.getPrezime()+"','"+korisnik.getEmail()+"', '"+korisnik.getTelefon()+"')";
         try {
@@ -39,7 +58,7 @@ public class DBBroker {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-    }
+    }*/
 
 }
 
