@@ -1,6 +1,4 @@
-package dbbroker;
-import korisnik.Korisnik;
-import logic.Kontroler;
+package baza;
 
 import java.sql.*;
 

@@ -26,7 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="298a8ef1-9d4f-479c-beac-746c3fdc6cb1">
-        <schema name="korisnik" object-types="column, procedure, function, table, view" />
+        <schema name="korisnik" object-types="procedure, view, table, function" />
       </connection>
     </loaded-nodes>
   </component>

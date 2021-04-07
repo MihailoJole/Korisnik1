@@ -1,12 +1,13 @@
-package logic;
+package logika;
 
-import dbbroker.DBBroker;
-import dbbroker.UnesiKorBaza;
+import baza.DBBroker;
+import baza.UnesiKorBaza;
 import korisnik.Korisnik;
 
 
 public class Kontroler {
 //    private DBBroker dbbr;
+    private UnesiKorBaza u;
 
     private static Kontroler instance;
 
@@ -22,7 +23,9 @@ public class Kontroler {
 //    }
 
     public void napraviKorisnika() throws  Exception{
-        Korisnik korisnik = new Korisnik("Nemanja", "Jovanovic", "nj@gmail.com", "064");
+        u = new UnesiKorBaza();
+        Korisnik k = u.unesiPodatkeKor();
+//        Korisnik korisnik = new Korisnik("Nemanja", "Jovanovic", "nj@gmail.com", "064");
         try {
             DBBroker.getInstance().ucitajKonekciju();
         }catch (Exception e) {
@@ -30,7 +33,7 @@ public class Kontroler {
             throw e;
         }
         try{
-            UnesiKorBaza.getInstance().ubaciKorisnika(korisnik);
+            u.ubaciKorisnika(k);
         } catch (Exception ex) {
             ex.printStackTrace();
             throw ex;
